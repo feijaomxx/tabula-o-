@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Tabulação V3.0</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-card">
+        <div class="header">
+            <span><i class="fas fa-headset"></i> Gerador de Tabulação</span>
+            <small>Operador: FEIJASMX</small>
+        </div>
+
+        <div class="grid-container">
+            <div class="input-group">
+                <label>Data do Atendimento</label>
+                <input type="text" id="data" placeholder="dd/mm/aaaa" maxlength="10" onkeyup="mascaraData(this)">
+            </div>
+
+            <div class="input-group">
+                <label>Número do Cliente (Migração)</label>
+                <input type="text" id="numero" placeholder="(XX) 9XXXX-XXXX" maxlength="15" onkeyup="mascaraTelefone(this)">
+            </div>
+
+            <div class="input-group">
+                <label>Valor TV (R$)</label>
+                <input type="tel" class="valor-input" id="tv" placeholder="0,00" oninput="formatarMoeda(this)">
+            </div>
+
+            <div class="input-group">
+                <label>Valor BL (R$)</label>
+                <input type="tel" class="valor-input" id="bl" placeholder="0,00" oninput="formatarMoeda(this)">
+            </div>
+
+            <div class="input-group">
+                <label>Valor Fone (R$)</label>
+                <input type="tel" class="valor-input" id="fone" placeholder="0,00" oninput="formatarMoeda(this)">
+            </div>
+
+            <div class="input-group">
+                <label>Valor Móvel (R$)</label>
+                <input type="tel" class="valor-input" id="movel" placeholder="0,00" oninput="formatarMoeda(this)">
+            </div>
+
+            <div class="input-group full-width">
+                <label>Valor Total (Automático)</label>
+                <input type="text" id="totalInput" value="0,00" readonly>
+            </div>
+
+            <div class="input-group full-width">
+                <label>Assinatura / Responsável</label>
+                <input type="text" id="assinatura" value="DAVI//VALDIR/BKO-S2S/ALMAVIVA-MCZ">
+            </div>
+        </div>
+
+        <button class="btn-action" onclick="gerarRelatorio()">
+            <i class="fas fa-copy"></i> GERAR E COPIAR
+        </button>
+
+        <textarea id="resultado" class="result-area" readonly placeholder="O texto gerado aparecerá aqui..."></textarea>
+    </div>
+
+    <div id="toast" class="toast">Copiado com sucesso!</div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
